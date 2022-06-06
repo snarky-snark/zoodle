@@ -240,6 +240,7 @@
 
 	<div slot="footer">
 		<a href="https://www.nytimes.com/games/wordle/" target="_blank">Original Wordle</a>
+                <a href="https://mikhad.github.io/wordle/" target="_blank">Wordle+</a>
 		<div>
 			<div>v{version}</div>
 			<div
