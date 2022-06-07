@@ -1061,4 +1061,5 @@ const words = {
     "zorse",
     "zuchon"
   ]
-}
+};
+export default words;
