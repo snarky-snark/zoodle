@@ -251,7 +251,7 @@ export function createNewGame(mode: GameMode, cols: number): GameState {
 		validHard: true,
 		board: {
 			words: Array(ROWS).fill(""),
-			state: Array.from({ length: ROWS }, () => (Array(COLS).fill("🔳"))),
+			state: Array.from({ length: ROWS }, () => (Array(cols).fill("🔳"))),
 			cols,
 		},
 	};
