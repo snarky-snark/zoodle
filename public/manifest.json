@@ -1,7 +1,7 @@
 {
-	"short_name": "Zoordle",
-	"name": "Zoordle",
-	"start_url": "https://snarky-snark.github.io/zoordle/",
+	"short_name": "Zoodle",
+	"name": "Zoodle",
+	"start_url": "https://snarky-snark.github.io/zoodle/",
 	"background_color": "#6aaa64",
 	"theme_color": "#6aaa64",
 	"description": "A daily word game",
