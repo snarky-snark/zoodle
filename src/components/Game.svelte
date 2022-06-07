@@ -262,7 +262,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: center;
+		align-items: stretch;
 		height: 100%;
 		max-width: var(--game-width);
 		margin: auto;
