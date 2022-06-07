@@ -3,7 +3,7 @@ import { GameMode, ms } from "./enums";
 import wordList from "./animal_words_6";
 
 export const ROWS = 6;
-export const COLS = 6;
+export const COLS = 5;
 
 export const words = {
 	...wordList,
@@ -13,12 +13,12 @@ export const words = {
 };
 
 export function checkHardMode(board: GameBoard, row: number): HardModeData {
-	for (let i = 0; i < COLS; ++i) {
+	for (let i = 0; i < board.cols; ++i) {
 		if (board.state[row - 1][i] === "🟩" && board.words[row - 1][i] !== board.words[row][i]) {
 			return { pos: i, char: board.words[row - 1][i], type: "🟩" };
 		}
 	}
-	for (let i = 0; i < COLS; ++i) {
+	for (let i = 0; i < board.cols; ++i) {
 		if (board.state[row - 1][i] === "🟨" && !board.words[row].includes(board.words[row - 1][i])) {
 			return { pos: i, char: board.words[row - 1][i], type: "🟨" };
 		}
@@ -41,11 +41,11 @@ class WordData {
 	public letterCounts: Map<string, [number, boolean]>;
 	private notSet: Set<string>;
 	public word: Tile[];
-	constructor() {
+	constructor(cols: number) {
 		this.notSet = new Set<string>();
 		this.letterCounts = new Map<string, [number, boolean]>();
 		this.word = [];
-		for (let col = 0; col < COLS; ++col) {
+		for (let col = 0; col < cols; ++col) {
 			this.word.push(new Tile());
 		}
 	}
@@ -84,10 +84,10 @@ class WordData {
 }
 
 export function getRowData(n: number, board: GameBoard) {
-	const wd = new WordData();
+	const wd = new WordData(board.cols);
 	for (let row = 0; row < n; ++row) {
 		const occured = new Set<string>();
-		for (let col = 0; col < COLS; ++col) {
+		for (let col = 0; col < board.cols; ++col) {
 			const state = board.state[row][col];
 			const char = board.words[row][col];
 			if (state === "⬛") {
@@ -242,7 +242,7 @@ export const PRAISE = [
 	"Phew",
 ];
 
-export function createNewGame(mode: GameMode): GameState {
+export function createNewGame(mode: GameMode, cols: number): GameState {
 	return {
 		active: true,
 		guesses: 0,
@@ -251,7 +251,8 @@ export function createNewGame(mode: GameMode): GameState {
 		validHard: true,
 		board: {
 			words: Array(ROWS).fill(""),
-			state: Array.from({ length: ROWS }, () => (Array(COLS).fill("🔳")))
+			state: Array.from({ length: ROWS }, () => (Array(COLS).fill("🔳"))),
+			cols,
 		},
 	};
 }
