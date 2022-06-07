@@ -27,7 +27,7 @@
 	$: reset($mode);
 </script>
 
-<h3>Next zoordle</h3>
+<h3>Next zoodle</h3>
 <div class="container">
 	{#if ms > 0}
 		<div class="timer">
