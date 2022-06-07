@@ -6,7 +6,7 @@
 </script>
 
 <h3>how to play</h3>
-<div>Guess the <strong>ZOORDLE</strong> in {ROWS} tries.</div>
+<div>Guess the <strong>ZOODLE</strong> in {ROWS} tries.</div>
 <div>Each guess must be a valid animal-themed word. Hit the enter button to submit.</div>
 <div>
 	After each guess, the color of the tiles will change to show how close your guess was to the
@@ -52,7 +52,7 @@
 	Wordle+ is written with Svelte, in Typescript by
 	<a href="https://github.com/MikhaD" target="_blank">MikhaD</a>.
 	<br />
-	Zoordle is based on Wordle+ with superficial modifications.
+	Zoodle is based on Wordle+ with superficial modifications.
 </div>
 
 <style lang="scss">
