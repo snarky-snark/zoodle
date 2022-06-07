@@ -260,7 +260,7 @@ export function createNewGame(mode: GameMode, cols: number): GameState {
 export function createDefaultSettings(): Settings {
 	return {
 		hard: new Array(modeData.modes.length).map(() => false),
-		dark: true,
+		dark: false,
 		colorblind: false,
 		tutorial: 3,
 	};
