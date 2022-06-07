@@ -54,8 +54,8 @@
 			<span slot="desc">The game mode determines how often the word refreshes</span>
 		</Setting>
 		<div class="links">
-			<a href="https://github.com/MikhaD/wordle" target="_blank">Leave a ⭐</a>
-			<a href="https://github.com/snarky-snark/zoordle/issues" target="_blank">Report a Bug</a>
+			<a href="https://github.com/snarky-snark/zoodle/issues" target="_blank">Leave a ⭐</a>
+			<a href="https://github.com/snarky-snark/zoodle/issues" target="_blank">Report a Bug</a>
 		</div>
 	</div>
 </div>
