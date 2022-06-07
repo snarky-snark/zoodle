@@ -49,14 +49,14 @@
 		if (modeData.modes[m].historical === true) {
 			temp = JSON.parse(localStorage.getItem(`state-${m}-h`));
 			if (!temp || temp.wordNumber !== getWordNumber(m)) {
-				state = createNewGame(m);
+				state = createNewGame(m, len(word));
 			} else {
 				state = temp;
 			}
 		} else {
 			temp = JSON.parse(localStorage.getItem(`state-${m}`));
 			if (!temp || modeData.modes[m].seed - temp.time >= modeData.modes[m].unit) {
-				state = createNewGame(m);
+				state = createNewGame(m, len(word));
 			} else {
 				// This is for backwards compatibility, can be removed in a day
 				if (!temp.wordNumber) {
