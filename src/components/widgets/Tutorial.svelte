@@ -48,11 +48,8 @@
 	to infinite mode to play an unlimited number of times.
 	<br /><br />
 	Open the settings menu to see some of the additional features.
-	<br />
-	Wordle+ is written with Svelte, in Typescript by
-	<a href="https://github.com/MikhaD" target="_blank">MikhaD</a>.
-	<br />
-	Zoodle is based on Wordle+ with superficial modifications.
+	<br /><br />
+	Zoodle is based on <a href="https://mikhad.github.io/wordle/" target="_blank">Wordle+</a> by <a href="https://github.com/MikhaD" target="_blank">MikhaD</a>.
 </div>
 
 <style lang="scss">
