@@ -26,7 +26,6 @@
 		modeData,
 		checkHardMode,
 		ROWS,
-		COLS,
 		newSeed,
 		createNewGame,
 		seededRandomInt,
@@ -59,7 +58,7 @@
 	$: if (showSettings && tips) tip = Math.floor(tips.length * Math.random());
 
 	function submitWord() {
-		if (game.board.words[game.guesses].length !== COLS) {
+		if (game.board.words[game.guesses].length !== game.board.cols) {
 			toaster.pop("Not enough letters");
 			board.shake(game.guesses);
 		} else if (words.contains(game.board.words[game.guesses])) {
@@ -103,7 +102,7 @@
 		game.active = false;
 		setTimeout(
 			() => toaster.pop(PRAISE[game.guesses - 1]),
-			DELAY_INCREMENT * COLS + DELAY_INCREMENT
+			DELAY_INCREMENT * game.board.cols + DELAY_INCREMENT
 		);
 		setTimeout(setShowStatsTrue, delay * 1.4);
 		if (!modeData.modes[$mode].historical) {
@@ -162,7 +161,7 @@
 
 <svelte:body on:click={board.hideCtx} on:contextmenu={board.hideCtx} />
 
-<main class:guesses={game.guesses !== 0} style="--rows: {ROWS}; --cols: {COLS}">
+<main class:guesses={game.guesses !== 0} style="--rows: {ROWS}; --cols: {game.board.cols}">
 	<Header
 		bind:showRefresh
 		tutorial={$settings.tutorial === 2}
