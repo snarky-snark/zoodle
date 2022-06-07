@@ -56,6 +56,7 @@
 			bind:this={rows[i]}
 			bind:value={value[i]}
 			state={board.state[i]}
+			cols={board.cols}
 			on:ctx={(e) => context(e.detail.x, e.detail.y, i, value[i])}
 		/>
 	{/each}
