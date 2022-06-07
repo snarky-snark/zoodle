@@ -1,5 +1,5 @@
 {
-  "name": "zoordle",
+  "name": "zoodle",
   "description": "An animal-themed remake of the popular game Wordle with additional modes and features.",
   "version": "0.1.0",
   "private": "true",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snarky-snark/zoordle.git"
+    "url": "git+https://github.com/snarky-snark/zoodle.git"
   },
   "keywords": [],
   "author": "snarky-snark",
   "bugs": {
-    "url": "https://github.com/snarky-snark/zoordle/issues"
+    "url": "https://github.com/snarky-snark/zoodle/issues"
   },
-  "homepage": "https://github.com/snarky-snark/zoordle#readme",
+  "homepage": "https://github.com/snarky-snark/zoodle#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
