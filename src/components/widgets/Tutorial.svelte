@@ -23,21 +23,21 @@
 	</div>
 	<div>The letter <strong>R</strong> is in the word and in the correct spot.</div>
 	<div class="row">
-		<Tile value="h" state="🔳" />
-		<Tile value="o" state="🔳" />
+		<Tile value="q" state="🔳" />
 		<Tile value="u" state="🔳" />
-		<Tile value="n" state="🔳" />
-		<Tile value="d" state="🟨" />
-	</div>
-	<div>The letter <strong>D</strong> is in the word but in the wrong spot.</div>
-	<div class="row">
-		<Tile value="g" state="🔳" />
-		<Tile value="e" state="🔳" />
+		<Tile value="a" state="🔳" />
 		<Tile value="c" state="🔳" />
-		<Tile value="k" state="⬛" />
-		<Tile value="o" state="🔳" />
+		<Tile value="k" state="🟨" />
 	</div>
-	<div>The letter <strong>K</strong> is not in the word in any spot.</div>
+	<div>The letter <strong>K</strong> is in the word but in the wrong spot.</div>
+	<div class="row">
+		<Tile value="s" state="🔳" />
+		<Tile value="h" state="🔳" />
+		<Tile value="e" state="⬛" />
+		<Tile value="l" state="🔳" />
+		<Tile value="l" state="🔳" />
+	</div>
+	<div>The letter <strong>E</strong> is not in the word in any spot.</div>
 </div>
 <div>
 	This is a recreation of the original <a
