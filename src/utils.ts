@@ -280,7 +280,7 @@ export function createNewGame(mode: GameMode, word: string): GameState {
 		cols,
         };
         let seed = modeData.modes[mode].seed;
-        Let numClues = setBoardClues(board, word, seed);
+        let numClues = setBoardClues(board, word, seed);
 	return {
 		active: true,
 		guesses: numClues > 0 ? 1 : 0,
