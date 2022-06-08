@@ -1,14 +1,15 @@
 import seedrandom from "seedrandom";
 import { GameMode, ms } from "./enums";
-import wordList from "./animal_words";
+import answerWordList from "./animal_words";
+import guessWordList from "./valid_words";
 
 export const ROWS = 6;
 export const COLS = 5;
 
 export const words = {
-	...wordList,
+	...answerWordList,
 	contains: (word: string) => {
-		return wordList.words.includes(word) || wordList.valid.includes(word);
+		return answerWordList.words.includes(word) || guessWordList.words.includes(word);
 	},
 };
 
