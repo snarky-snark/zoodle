@@ -137,7 +137,7 @@ function countOccurences<T>(arr: T[], val: T) {
 
 export function getState(word: string, guess: string): LetterState[] {
 	const charArr = word.split("");
-	const result = Array<LetterState>(5).fill("⬛");
+	const result = Array<LetterState>(word.length).fill("⬛");
 	for (let i = 0; i < word.length; ++i) {
 		if (charArr[i] === guess.charAt(i)) {
 			result[i] = "🟩";
