@@ -242,10 +242,13 @@ export const PRAISE = [
 	"Phew",
 ];
 
-function setBoardClues(board: GameBoard, word: string, seed: number) {
+function setBoardClues(board: GameBoard, word: string, seed: number): number {
 	let rng = seedrandom(`${seed}`);
 	// Game always starts with enough clues to leave 5 letters unknown
 	let numClues = Math.max(0, word.length - 5);
+	if (numClues === 0) {
+	        return 0;
+	}
 	let cluePositions = [];
 	while(cluePositions.length < numClues) {
 	        let pos = Math.floor(rng() * word.length);
@@ -263,6 +266,10 @@ function setBoardClues(board: GameBoard, word: string, seed: number) {
 	}
 	let shuffledClueWord = [...clueWord].sort(()=>rng()-.5).join('');
 	board.words[0] = shuffledClueWord;
+
+	board.state[0] = getState(word, shuffledClueWord);
+
+	return numClues;
 }
 
 export function createNewGame(mode: GameMode, word: string): GameState {
@@ -273,10 +280,10 @@ export function createNewGame(mode: GameMode, word: string): GameState {
 		cols,
         };
         let seed = modeData.modes[mode].seed;
-        setBoardClues(board, word, seed);
+        Let numClues = setBoardClues(board, word, seed);
 	return {
 		active: true,
-		guesses: 0,
+		guesses: numClues > 0 ? 1 : 0,
 		time: seed,
 		wordNumber: getWordNumber(mode),
 		validHard: true,
