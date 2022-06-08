@@ -13,7 +13,7 @@
 	}/${state.board.words.length}\n\n    ${state.board.state
 		.slice(0, state.guesses)
 		.map((r) => r.join(""))
-		.join("\n    ")}\snarky-snark.github.io/zoodle`;
+		.join("\n    ")}\nsnarky-snark.github.io/zoodle`;
 </script>
 
 <div
