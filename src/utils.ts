@@ -267,7 +267,7 @@ function setBoardClues(board: GameBoard, word: string, seed: number): number {
 	let shuffledClueWord = [...clueWord].sort(()=>rng()-.5).join('');
 	board.words[0] = shuffledClueWord;
 
-	board.state[0] = getState(word, shuffledClueWord);
+	board.state[0] = getState(word, shuffledClueWord).replaceAll("⬛", "🔳");
 
 	return numClues;
 }
