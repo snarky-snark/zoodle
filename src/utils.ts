@@ -243,11 +243,11 @@ export const PRAISE = [
 ];
 
 function setBoardClues(board: GameBoard, word: string, seed: number) {
+	let rng = seedrandom(`${seed}`);
 	// Game always starts with enough clues to leave 5 letters unknown
 	let numClues = Math.max(0, word.length - 5);
 	let cluePositions = [];
-	while(cluePositions.length < numClues){
-                let rng = seedrandom(`${seed}`);
+	while(cluePositions.length < numClues) {
 	        let pos = Math.floor(rng() * word.length);
 	        if(cluePositions.indexOf(pos) === -1) {
                         cluePositions.push(pos);
@@ -261,7 +261,6 @@ function setBoardClues(board: GameBoard, word: string, seed: number) {
 	                clueWord += " ";
 	        }
 	}
-        let rng = seedrandom(`${seed}`);
 	let shuffledClueWord = [...clueWord].sort(()=>rng()-.5).join('');
 	board.words[0] = shuffledClueWord;
 }
