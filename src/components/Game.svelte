@@ -141,8 +141,8 @@
 	function reload() {
 		modeData.modes[$mode].historical = false;
 		modeData.modes[$mode].seed = newSeed($mode);
-		game = createNewGame($mode);
 		word = words.words[seededRandomInt(0, words.words.length, modeData.modes[$mode].seed)];
+		game = createNewGame($mode, word.length);
 		$letterStates = createLetterStates();
 		showStats = false;
 		showRefresh = false;
