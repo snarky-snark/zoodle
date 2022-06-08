@@ -8,7 +8,7 @@ export const COLS = 5;
 
 export const words = {
 	words: answerWordList.words,
-	valid: guessWordList.words.filter(word => !answerWordList.includes(word)),
+	valid: guessWordList.words.filter(word => !answerWordList.words.includes(word)),
 	contains: (word: string) => {
 		return answerWordList.words.includes(word) || guessWordList.words.includes(word);
 	},
