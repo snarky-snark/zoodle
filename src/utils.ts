@@ -121,6 +121,9 @@ export function getRowData(n: number, board: GameBoard) {
 		exp += wd.word[pos].value ? wd.word[pos].value : `[^${[...wd.lettersNotAt(pos)].join(" ")}]`;
 	}
 	return (word: string) => {
+		if (word.length !== board.cols) {
+			return false;
+		}
 		if (new RegExp(exp).test(word)) {
 			const chars = word.split("");
 			for (const e of wd.letterCounts) {
