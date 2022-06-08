@@ -248,7 +248,9 @@ function setBoardClues(board: GameBoard, word: string, seed: number) {
 	let cluePositions = [];
 	while(cluePositions.length < numClues){
 	        let pos = Math.floor(seedrandom(`${seed}`) * word.length);
-	        if(cluePositions.indexOf(r) === -1) cluePositions.push(pos);
+	        if(cluePositions.indexOf(pos) === -1) {
+                        cluePositions.push(pos);
+                }
 	}
 	let clueWord = "";
 	for (let i = 0; i < word.length; ++i) {
