@@ -247,7 +247,8 @@ function setBoardClues(board: GameBoard, word: string, seed: number) {
 	let numClues = Math.max(0, word.length - 5);
 	let cluePositions = [];
 	while(cluePositions.length < numClues){
-	        let pos = Math.floor(seedrandom(`${seed}`) * word.length);
+                let rng = seedrandom(`${seed}`);
+	        let pos = Math.floor(rng() * word.length);
 	        if(cluePositions.indexOf(pos) === -1) {
                         cluePositions.push(pos);
                 }
@@ -260,7 +261,8 @@ function setBoardClues(board: GameBoard, word: string, seed: number) {
 	                clueWord += " ";
 	        }
 	}
-	let shuffledClueWord = [...clueWord].sort(()=>seedrandom(`${seed}`)-.5).join('');
+        let rng = seedrandom(`${seed}`);
+	let shuffledClueWord = [...clueWord].sort(()=>rng()-.5).join('');
 	board.words[0] = shuffledClueWord;
 }
 
