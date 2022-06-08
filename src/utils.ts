@@ -242,18 +242,42 @@ export const PRAISE = [
 	"Phew",
 ];
 
-export function createNewGame(mode: GameMode, cols: number): GameState {
+function setBoardClues(board: GameBoard, word: string, seed: number) {
+	// Game always starts with enough clues to leave 5 letters unknown
+	let numClues = Math.max(0, word.length - 5);
+	let cluePositions = [];
+	while(cluePositions.length < numClues){
+	        let pos = Math.floor(seedrandom(`${seed}`) * word.length);
+	        if(cluePositions.indexOf(r) === -1) cluePositions.push(pos);
+	}
+	let clueWord = "";
+	for (let i = 0; i < word.length; ++i) {
+	        if (cluePositions.includes(i)) {
+	                clueWord += word.charAt(i);
+	        } else {
+	                clueWord += " ";
+	        }
+	}
+	let shuffledClueWord = [...clueWord].sort(()=>seedrandom(`${seed}`)-.5).join('');
+	board.words[0] = shuffledClueWord;
+}
+
+export function createNewGame(mode: GameMode, word: string): GameState {
+	let cols = word.length;
+        let board = {
+		words: Array(ROWS).fill(""),
+		state: Array.from({ length: ROWS }, () => (Array(cols).fill("🔳"))),
+		cols,
+        };
+        let seed = modeData.modes[mode].seed;
+        setBoardClues(board, word, seed);
 	return {
 		active: true,
 		guesses: 0,
-		time: modeData.modes[mode].seed,
+		time: seed,
 		wordNumber: getWordNumber(mode),
 		validHard: true,
-		board: {
-			words: Array(ROWS).fill(""),
-			state: Array.from({ length: ROWS }, () => (Array(cols).fill("🔳"))),
-			cols,
-		},
+		board,
 	};
 }
 
@@ -316,6 +340,7 @@ export function createLetterStates(): { [key: string]: LetterState; } {
 		x: "🔳",
 		y: "🔳",
 		z: "🔳",
+		" ": "🔳",
 	};
 }
 
