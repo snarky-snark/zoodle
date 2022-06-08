@@ -363,5 +363,5 @@ export function timeRemaining(m: Mode) {
 }
 
 export function failed(s: GameState) {
-	return !(s.active || (s.guesses > 0 && s.board.state[s.guesses - 1].join("") === "🟩".repeat(COLS)));
+	return !(s.active || (s.guesses > 0 && s.board.state[s.guesses - 1].join("") === "🟩".repeat(s.board.cols)));
 }
