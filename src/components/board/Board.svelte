@@ -80,6 +80,7 @@
 		grid-template-rows: repeat(var(--rows), 1fr);
 		gap: 5.5px;
 		max-height: 420px;
+		max-width: 100%;
 		flex-grow: 1;
 		aspect-ratio: var(--cols) / var(--rows);
 		padding: 10px;
