@@ -250,7 +250,7 @@ export const PRAISE = [
 function setBoardClues(board: GameBoard, word: string, seed: number): number {
 	let rng = seedrandom(`${seed}`);
 	// Game always starts with enough clues to leave 5 letters unknown
-	let numClues = Math.max(0, word.length - 5);
+	let numClues = Math.max(0, word.length - COLS);
 	if (numClues === 0) {
 	        return 0;
 	}
@@ -278,10 +278,13 @@ function setBoardClues(board: GameBoard, word: string, seed: number): number {
 }
 
 export function createNewGame(mode: GameMode, word: string): GameState {
+        // Include an extra row for clues for words > 5 letters.
 	let cols = word.length;
+        let rows = cols > COLS ? 7 : 6;
         let board = {
-		words: Array(ROWS).fill(""),
-		state: Array.from({ length: ROWS }, () => (Array(cols).fill("🔳"))),
+		words: Array(rows).fill(""),
+		state: Array.from({ length: rows }, () => (Array(cols).fill("🔳"))),
+		rows,
 		cols,
         };
         let seed = modeData.modes[mode].seed;
