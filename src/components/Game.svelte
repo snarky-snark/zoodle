@@ -83,7 +83,7 @@
 			game.board.state[game.guesses] = state;
 			state.forEach((e, i) => {
 				const ls = $letterStates[game.board.words[game.guesses][i]];
-				if (ls === "🔳" || e === "🟩") {
+				if (ls === "⬜" || e === "🟩") {
 					$letterStates[game.board.words[game.guesses][i]] = e;
 				}
 			});
