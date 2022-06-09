@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from "svelte";
 
 	export let letter: string;
-	export let state: LetterState = "🔳";
+	export let state: LetterState = "⬜";
 
 	const dispatch = createEventDispatcher();
 </script>
