@@ -261,7 +261,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: stretch;
+		align-items: center;
 		height: 100%;
 		max-width: var(--game-width);
 		margin: auto;
