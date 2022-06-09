@@ -15,7 +15,7 @@ type RowData = {
 	guess: number;
 };
 
-type LetterState = "🔳" | "⬛" | "🟨" | "🟩";
+type LetterState = "⬜" | "⬛" | "🟨" | "🟩";
 
 type GameState = {
 	active: boolean,
