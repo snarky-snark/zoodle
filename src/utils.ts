@@ -118,7 +118,7 @@ export function getRowData(n: number, board: GameBoard) {
 
 	let exp = "";
 	for (let pos = 0; pos < wd.word.length; ++pos) {
-		exp += wd.word[pos].value ? wd.word[pos].value : `[^${[...wd.lettersNotAt(pos)].join(" ")}]`;
+		exp += wd.word[pos].value && wd.word[pos] !== " " ? wd.word[pos].value : `[^${[...wd.lettersNotAt(pos)].join(" ")}]`;
 	}
 	return (word: string) => {
 		if (word.length !== board.cols) {
