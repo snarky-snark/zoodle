@@ -21,7 +21,7 @@
 	// ensure all animations play
 	const unsub = mode.subscribe(() => {
 		animation = "";
-		s = "🔳";
+		s = "⬜";
 		setTimeout(() => (s = ""), 10);
 	});
 	// prevent pop animation from playing at the beginning
@@ -88,12 +88,12 @@
 	.🟨 .back {
 		background: var(--color-present);
 	}
-	:global(.complete) .tile:not(.🔳) .front {
+	:global(.complete) .tile:not(.⬜) .front {
 		transition-delay: inherit !important;
 		transition-duration: 0.8s;
 		transform: rotateX(180deg);
 	}
-	:global(.complete) .tile:not(.🔳) .back {
+	:global(.complete) .tile:not(.⬜) .back {
 		transition-delay: inherit !important;
 		transition-duration: 0.8s;
 		transform: rotateX(0deg);
