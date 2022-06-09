@@ -16,26 +16,26 @@
 	<div><strong>Examples</strong></div>
 	<div class="row">
 		<Tile value="r" state="🟩" />
-		<Tile value="a" state="🔳" />
-		<Tile value="v" state="🔳" />
-		<Tile value="e" state="🔳" />
-		<Tile value="n" state="🔳" />
+		<Tile value="a" state="⬜" />
+		<Tile value="v" state="⬜" />
+		<Tile value="e" state="⬜" />
+		<Tile value="n" state="⬜" />
 	</div>
 	<div>The letter <strong>R</strong> is in the word and in the correct spot.</div>
 	<div class="row">
-		<Tile value="q" state="🔳" />
-		<Tile value="u" state="🔳" />
-		<Tile value="a" state="🔳" />
-		<Tile value="c" state="🔳" />
+		<Tile value="q" state="⬜" />
+		<Tile value="u" state="⬜" />
+		<Tile value="a" state="⬜" />
+		<Tile value="c" state="⬜" />
 		<Tile value="k" state="🟨" />
 	</div>
 	<div>The letter <strong>K</strong> is in the word but in the wrong spot.</div>
 	<div class="row">
-		<Tile value="s" state="🔳" />
-		<Tile value="h" state="🔳" />
+		<Tile value="s" state="⬜" />
+		<Tile value="h" state="⬜" />
 		<Tile value="e" state="⬛" />
-		<Tile value="l" state="🔳" />
-		<Tile value="l" state="🔳" />
+		<Tile value="l" state="⬜" />
+		<Tile value="l" state="⬜" />
 	</div>
 	<div>The letter <strong>E</strong> is not in the word in any spot.</div>
 </div>
