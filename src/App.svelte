@@ -6,7 +6,6 @@
 		createNewGame,
 		createDefaultSettings,
 		createLetterStates,
-		ROWS,
 		getWordNumber,
 		words,
 	} from "./utils";
@@ -67,7 +66,7 @@
 		}
 		// Set the letter states when data for a new game mode is loaded so the keyboard is correct
 		const letters = createLetterStates();
-		for (let row = 0; row < ROWS; ++row) {
+		for (let row = 0; row < state.board.rows; ++row) {
 			for (let col = 0; col < state.board.words[row].length; ++col) {
 				if (
 					letters[state.board.words[row][col]] === "🔳" ||
