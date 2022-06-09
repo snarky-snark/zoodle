@@ -69,7 +69,7 @@
 		for (let row = 0; row < state.board.rows; ++row) {
 			for (let col = 0; col < state.board.words[row].length; ++col) {
 				if (
-					letters[state.board.words[row][col]] === "🔳" ||
+					letters[state.board.words[row][col]] === "⬜" ||
 					state.board.state[row][col] === "🟩"
 				) {
 					letters[state.board.words[row][col]] = state.board.state[row][col];
