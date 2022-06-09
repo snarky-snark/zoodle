@@ -92,7 +92,8 @@ export function getRowData(n: number, board: GameBoard) {
 		for (let col = 0; col < board.cols; ++col) {
 			const state = board.state[row][col];
 			const char = board.words[row][col];
-			if (state === "⬛") {
+			// Assume rows with blank tiles 🔳 are used as clue rows with blank tiles containing spaces
+			if (state === "⬛" || state === "🔳") {
 				wd.confirmCount(char);
 				// if char isn't in the global not list add it to the not list for that position
 				if (!wd.inGlobalNotList(char)) {
@@ -271,7 +272,7 @@ function setBoardClues(board: GameBoard, word: string, seed: number): number {
 	}
 	let shuffledClueWord = [...clueWord].sort(()=>rng()-.5).join('');
 	board.words[0] = shuffledClueWord;
-
+	// Replace the black tiles ⬛ in the clue row that are filled with spaces with empty tiles 🔳
 	board.state[0] = getState(word, shuffledClueWord).map(ls => ls === "⬛" ? "🔳" : ls);
 
 	return numClues;
