@@ -280,7 +280,7 @@ function setBoardClues(board: GameBoard, word: string, seed: number): number {
 export function createNewGame(mode: GameMode, word: string): GameState {
         // Include an extra row for clues for words > 5 letters.
 	let cols = word.length;
-        let rows = cols > COLS ? 7 : 6;
+        let rows = cols > COLS ? ROWS + 1: ROWS;
         let board = {
 		words: Array(rows).fill(""),
 		state: Array.from({ length: rows }, () => (Array(cols).fill("🔳"))),
