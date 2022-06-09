@@ -25,7 +25,6 @@
 		getState,
 		modeData,
 		checkHardMode,
-		ROWS,
 		newSeed,
 		createNewGame,
 		seededRandomInt,
@@ -43,7 +42,7 @@
 	const version = getContext<string>("version");
 
 	// implement transition delay on keys
-	const delay = DELAY_INCREMENT * ROWS + 800;
+	const delay = (rows: number) => DELAY_INCREMENT * rows + 800;
 
 	let showTutorial = $settings.tutorial === 3;
 	let showSettings = false;
@@ -90,7 +89,7 @@
 			});
 			++game.guesses;
 			if (game.board.words[game.guesses - 1] === word) win();
-			else if (game.guesses === ROWS) lose();
+			else if (game.guesses === game.board.rows) lose();
 		} else {
 			toaster.pop("Not in word list");
 			board.shake(game.guesses);
@@ -104,7 +103,7 @@
 			() => toaster.pop(PRAISE[game.guesses - 1]),
 			DELAY_INCREMENT * game.board.cols + DELAY_INCREMENT
 		);
-		setTimeout(setShowStatsTrue, delay * 1.4);
+		setTimeout(setShowStatsTrue, delay(game.board.rows) * 1.4);
 		if (!modeData.modes[$mode].historical) {
 			++stats.guesses[game.guesses];
 			++stats.played;
@@ -122,7 +121,7 @@
 
 	function lose() {
 		game.active = false;
-		setTimeout(setShowStatsTrue, delay);
+		setTimeout(setShowStatsTrue, delay(game.board.rows));
 		if (!modeData.modes[$mode].historical) {
 			++stats.guesses.fail;
 			++stats.played;
@@ -154,14 +153,14 @@
 	}
 
 	onMount(() => {
-		if (!game.active) setTimeout(setShowStatsTrue, delay);
+		if (!game.active) setTimeout(setShowStatsTrue, delay(game.board.rows));
 	});
 	// $: toaster.pop(word);
 </script>
 
 <svelte:body on:click={board.hideCtx} on:contextmenu={board.hideCtx} />
 
-<main class:guesses={game.guesses !== 0} style="--rows: {ROWS}; --cols: {game.board.cols}">
+<main class:guesses={game.guesses !== 0} style="--rows: {game.board.rows}; --cols: {game.board.cols}">
 	<Header
 		bind:showRefresh
 		tutorial={$settings.tutorial === 2}
@@ -186,7 +185,7 @@
 			if ($settings.tutorial) $settings.tutorial = 0;
 			board.hideCtx();
 		}}
-		bind:value={game.board.words[game.guesses === ROWS ? 0 : game.guesses]}
+		bind:value={game.board.words[game.guesses === game.board.rows ? 0 : game.guesses]}
 		on:submitWord={submitWord}
 		on:esc={() => {
 			showTutorial = false;
