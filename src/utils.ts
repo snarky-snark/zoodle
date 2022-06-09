@@ -92,8 +92,8 @@ export function getRowData(n: number, board: GameBoard) {
 		for (let col = 0; col < board.cols; ++col) {
 			const state = board.state[row][col];
 			const char = board.words[row][col];
-			// Assume rows with blank tiles 🔳 are used as clue rows with blank tiles containing spaces
-			if (state === "⬛" || state === "🔳") {
+			// Assume rows with blank tiles ⬜ are used as clue rows with blank tiles containing spaces
+			if (state === "⬛" || state === "⬜") {
 				wd.confirmCount(char);
 				// if char isn't in the global not list add it to the not list for that position
 				if (!wd.inGlobalNotList(char)) {
@@ -272,8 +272,8 @@ function setBoardClues(board: GameBoard, word: string, seed: number): number {
 	}
 	let shuffledClueWord = [...clueWord].sort(()=>rng()-.5).join('');
 	board.words[0] = shuffledClueWord;
-	// Replace the black tiles ⬛ in the clue row that are filled with spaces with empty tiles 🔳
-	board.state[0] = getState(word, shuffledClueWord).map(ls => ls === "⬛" ? "🔳" : ls);
+	// Replace the black tiles ⬛ in the clue row that are filled with spaces with empty tiles ⬜
+	board.state[0] = getState(word, shuffledClueWord).map(ls => ls === "⬛" ? "⬜" : ls);
 
 	return numClues;
 }
@@ -284,7 +284,7 @@ export function createNewGame(mode: GameMode, word: string): GameState {
         let rows = cols > COLS ? ROWS + 1: ROWS;
         let board = {
 		words: Array(rows).fill(""),
-		state: Array.from({ length: rows }, () => (Array(cols).fill("🔳"))),
+		state: Array.from({ length: rows }, () => (Array(cols).fill("⬜"))),
 		rows,
 		cols,
         };
@@ -334,33 +334,33 @@ export function createDefaultStats(mode: GameMode): Stats {
 
 export function createLetterStates(): { [key: string]: LetterState; } {
 	return {
-		a: "🔳",
-		b: "🔳",
-		c: "🔳",
-		d: "🔳",
-		e: "🔳",
-		f: "🔳",
-		g: "🔳",
-		h: "🔳",
-		i: "🔳",
-		j: "🔳",
-		k: "🔳",
-		l: "🔳",
-		m: "🔳",
-		n: "🔳",
-		o: "🔳",
-		p: "🔳",
-		q: "🔳",
-		r: "🔳",
-		s: "🔳",
-		t: "🔳",
-		u: "🔳",
-		v: "🔳",
-		w: "🔳",
-		x: "🔳",
-		y: "🔳",
-		z: "🔳",
-		" ": "🔳",
+		a: "⬜",
+		b: "⬜",
+		c: "⬜",
+		d: "⬜",
+		e: "⬜",
+		f: "⬜",
+		g: "⬜",
+		h: "⬜",
+		i: "⬜",
+		j: "⬜",
+		k: "⬜",
+		l: "⬜",
+		m: "⬜",
+		n: "⬜",
+		o: "⬜",
+		p: "⬜",
+		q: "⬜",
+		r: "⬜",
+		s: "⬜",
+		t: "⬜",
+		u: "⬜",
+		v: "⬜",
+		w: "⬜",
+		x: "⬜",
+		y: "⬜",
+		z: "⬜",
+		" ": "⬜",
 	};
 }
 
