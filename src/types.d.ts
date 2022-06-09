@@ -29,6 +29,7 @@ type GameState = {
 type GameBoard = {
 	words: string[],
 	state: LetterState[][],
+        rows: number,
         cols: number,
 };
 
