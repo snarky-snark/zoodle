@@ -2,18 +2,18 @@
 	import type Toaster from "./Toaster.svelte";
 
 	import { mode } from "../../stores";
-	import { failed, modeData } from "../../utils";
+	import { failed, modeData, getRandimal} from "../../utils";
 	import { getContext } from "svelte";
 
 	export let state: GameState;
 	const toaster = getContext<Toaster>("toaster");
 
-	$: stats = `${modeData.modes[$mode].name} Zoodle #${state.wordNumber} ${
+	$: stats = `${modeData.modes[$mode].name === "daily" ? "" : modeData.modes[$mode].name + " "}Zoodle ${getRandimal(state.wordNumber)} #${state.wordNumber} ${
 		failed(state) ? "X" : state.guesses
-	}/${state.board.words.length}\n\n    ${state.board.state
+	}/${state.board.words.length}\n\n${state.board.state
 		.slice(0, state.guesses)
 		.map((r) => r.join(""))
-		.join("\n    ")}\n\nsnarky-snark.github.io/zoodle`;
+		.join("\n")}\n\n🐾 snarky-snark.github.io/zoodle`;
 </script>
 
 <div
