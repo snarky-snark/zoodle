@@ -8,7 +8,7 @@
 	export let state: GameState;
 	const toaster = getContext<Toaster>("toaster");
 
-	$: stats = `${modeData.modes[$mode].name === "daily" ? "" : modeData.modes[$mode].name + " "}Zoodle ${getRandimal(state.wordNumber)} #${state.wordNumber} ${
+	$: stats = `${modeData.modes[$mode].name === "Daily" ? "" : modeData.modes[$mode].name + " "}Zoodle ${getRandimal(state.wordNumber)} #${state.wordNumber} ${
 		failed(state) ? "X" : state.guesses
 	}/${state.board.words.length}\n\n${state.board.state
 		.slice(0, state.guesses)
